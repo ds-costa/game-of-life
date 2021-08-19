@@ -1,4 +1,4 @@
-# 🦐 Conway's Game of Life
+# 🌱 Conway's Game of Life
 
 Conway's Game of Life implementation with raylib and c++. Windows and Ubuntu builds.
 
