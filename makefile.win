@@ -1,0 +1,16 @@
+CC := g++
+CFLAGS := -Wall -I"lib/raylib" -L"lib/raylib/win64" -lraylib -lm -lopengl32 -lgdi32 -lwinmm
+BIN := bin/life
+SRC := src
+SRCS := $(wildcard $(SRC)/*.cpp)
+
+.PHONY: all
+
+all:
+	$(CC) main.cpp $(SRCS) $(CFLAGS) -o $(BIN) 
+
+run:
+	./$(BIN)
+
+clean:
+	del $(BIN).exe
