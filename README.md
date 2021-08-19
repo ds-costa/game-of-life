@@ -52,7 +52,7 @@ All raylib files are in "lib/" folder
 
 ## 👨‍💻 Maintainers/Contributors
 
-* [David Costa](github.com/ds-costa)
+* [David Costa](https://github.com/ds-costa)
 
 ## 📝 License
 
