@@ -6,7 +6,7 @@ Conway's Game of Life implementation with raylib and c++. Windows and Ubuntu bui
 
 ## ✔️ Requirements
 
-* [Raylib](https://github.com/raysan5/raylib)
+* [Raylib 3.7.0](https://github.com/raysan5/raylib)
 * g++
 * make
 * mingw 64bits (Windows)
@@ -17,7 +17,7 @@ Conway's Game of Life implementation with raylib and c++. Windows and Ubuntu bui
 ```bash
 sudo apt install g++ build-essential libasound2-dev mesa-common-dev libx11-dev libxrandr-dev libxi-dev xorg-dev libgl1-mesa-dev libglu1-mesa-dev
 ```
-All raylib files are in "lib/" folder
+All raylib binaries and header files are in "lib/" folder
 
 ## ⌨️ Getting Started (Ubuntu bash)
 
