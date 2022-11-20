@@ -26,10 +26,10 @@ private:
     Vector2 mousePosition{0, 0};
 
     // Cell draw data
-    Vector2 initialPosition{200, 100};
+    Vector2 initialPosition{350, 30};
     // Cell data
-    int cellWidth{10};
-    int cellHeight{10};
+    int cellWidth{15};
+    int cellHeight{15};
 
     int GetCellNeighborsQuantity(int x, int y);
     inline void SetCellState(int x, int y, State state);
