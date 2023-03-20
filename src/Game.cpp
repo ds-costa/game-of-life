@@ -20,7 +20,7 @@ Game::~Game() {
 void Game::Update(float deltaTime) {
     if(isRunning) {
         timer += deltaTime;
-        if(timer - (updateRate/simulationSpeed) >= 0) {
+        if(timer - (UPDATE_RATE/simulationSpeed) >= 0) {
             grid.Update();
             timer = 0;
         }
