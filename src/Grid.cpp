@@ -10,10 +10,10 @@ void Grid::Update() {
             State isCellAlive = previousState[x][y];
             int neighborsQuantity = GetCellNeighborsQuantity(x, y);
             if(!isCellAlive && neighborsQuantity == 3) {
-                SetCellState(x, y, true);
+                SetCellState(x, y, ALIVE);
             }
             else if(neighborsQuantity <= 1 || neighborsQuantity >= 4) {
-                SetCellState(x, y, false);
+                SetCellState(x, y, DEAD);
             }
         }
     }

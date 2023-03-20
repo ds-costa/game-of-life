@@ -12,11 +12,15 @@ static const int GRID_CELL_WIDTH{15};
 static const int GRID_CELL_HEIGHT{15};
 
 using State = bool;
+static const State DEAD{false};
+static const State ALIVE{true};
 
 class Grid {
 
 public:
     bool hasGridLines = true;
+
+
 
     void Update();
     void Draw();
