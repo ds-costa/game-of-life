@@ -2,7 +2,8 @@
 #define GRID_HPP
 
 #include <array>
-#include "Modulo.hpp"
+#include <algorithm>
+#include "Vector2i.hpp"
 #include "../lib/raylib/raylib.h"
 #include "../lib/raylib/raymath.h"
 

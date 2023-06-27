@@ -98,58 +98,40 @@ void Grid::SaveState() {
     }
 }
 
+bool getCellState(int x, int y, std::array<std::array<State, GRID_COLS>, GRID_ROWS> board) {
+    int a = x;
+    int b = y;
+
+    if (x < 0) {
+        a = GRID_COLS - 1;
+    }
+    if (y < 0) {
+        b = GRID_ROWS - 1;
+    }
+    if (x > GRID_ROWS - 1) {
+        a = 0;
+    }
+    if (y > GRID_COLS - 1) {
+        b = 0;
+    }
+
+    return board[a][b];
+}
+
+
 int Grid::GetCellNeighborsQuantity(int x, int y) {
+    std::array<Vector2i, 8> positions = {
+        Vector2i{x - 1, y - 1},
+        Vector2i{x    , y - 1},
+        Vector2i{x + 1, y - 1},
+        Vector2i{x + 1, y    },
+        Vector2i{x + 1, y + 1},
+        Vector2i{x    , y + 1},
+        Vector2i{x - 1, y + 1},
+        Vector2i{x - 1, y    },
+    };
 
-    int neighbors_counter = 0;
-    int a = 0, b = 0;
-
-    a = Modulo::Subtract(x, 1, GRID_ROWS);
-    b = Modulo::Subtract(y, 1, GRID_ROWS);
-    if(previousState[a][b]) {
-        neighbors_counter++;
-    }
-
-    a = Modulo::Subtract(x, 1, GRID_ROWS);
-    b = y;
-    if(previousState[a][b]) {
-        neighbors_counter++;
-    }
-
-    a = Modulo::Subtract(x, 1, GRID_ROWS);
-    b = Modulo::Add(y, 1, GRID_ROWS);
-    if(previousState[a][b]) {
-        neighbors_counter++;
-    }
-
-    a = x;
-    b = Modulo::Subtract(y, 1, GRID_ROWS);
-    if(previousState[a][b]) {
-        neighbors_counter++;
-    }
-
-    a = x;
-    b = Modulo::Add(y, 1, GRID_ROWS);
-    if(previousState[a][b]) {
-        neighbors_counter++;
-    }
-
-    a = Modulo::Add(x, 1, GRID_ROWS);
-    b = Modulo::Subtract(y, 1, GRID_ROWS);
-    if(previousState[a][b]) {
-        neighbors_counter++;
-    }
-
-    a = Modulo::Add(x, 1, GRID_ROWS);
-    b = y;
-    if(previousState[a][b]) {
-        neighbors_counter++;
-    }
-
-    a = Modulo::Add(x, 1, GRID_ROWS);
-    b = Modulo::Add(y, 1, GRID_ROWS);
-    if(previousState[a][b]) {
-        neighbors_counter++;
-    }
-
-    return neighbors_counter;
+    return std::count_if(positions.begin(), positions.end(), [&](auto point) {
+        return getCellState(point.x, point.y, previousState);
+    });
 }
